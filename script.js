@@ -20,22 +20,21 @@ const addTask = () => {
 
   if (taskText === "") {
     alert("Please enter a task.");
-    return;
+  } else {
+    const liElement = document.createElement("li");
+    liElement.textContent = taskText;
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.className = "remove-btn";
+
+    removeButton.onclick = function () {
+      taskList.removeChild(liElement);
+    };
+
+    liElement.appendChild(removeButton);
+
+    taskList.appendChild(liElement);
+    taskInput.value = "";
   }
-
-  const listItem = document.createElement("li");
-  listItem.textContent = taskText;
-
-  const removeButton = document.createElement("button");
-  removeButton.textContent = "Remove";
-  removeButton.className = "remove-btn";
-
-  removeButton.onclick = function () {
-    taskList.removeChild(listItem);
-  };
-
-  listItem.appendChild(removeButton);
-
-  taskList.appendChild(listItem);
-  taskInput.value = "";
 };
