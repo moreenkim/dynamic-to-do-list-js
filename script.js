@@ -18,9 +18,7 @@ const addTask = () => {
 
   const taskText = taskInput.value.trim();
 
-  if (taskText === "") {
-    alert("Please enter a task.");
-  } else {
+  if (taskText !== "") {
     const liElement = document.createElement("li");
     liElement.textContent = taskText;
 
@@ -36,5 +34,8 @@ const addTask = () => {
 
     taskList.appendChild(liElement);
     taskInput.value = "";
+  } else {
+    alert("Please enter a task.");
   }
 };
+
